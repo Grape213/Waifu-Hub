@@ -1,5 +1,5 @@
 local distance = -6
-getgenv.Bag = 1
+getgenv().Bags = 1
 
 local color = Color3.fromRGB(107, 50, 124)
 local cum = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/Libr"))()
@@ -15,9 +15,14 @@ end)
 Tab1:Toggle("Auto Bag", function(e)
 getgenv().Bag = e 
     wait()
-if getgenv().Bag then 
-for i, v in pairs(game:GetService("Workspace")["Punching Bags"]:GetChildren()) do
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
+if getgenv().Bag and getgenv().Bags == 1 then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Items.Gloves.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(distance > -90 or 90), 0, 0) + Vector3.new(0, -3, 0)
+    wait(0.5)
+    fireclickdetector(game.workspace.Items.Gloves.ClickDetector)
+    wait(0.5)
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3219, 338, 1943) * CFrame.Angles(math.rad -90, 0, 0) + Vector3.new(0, -6, 0)
+    
 end
 end
 end)
