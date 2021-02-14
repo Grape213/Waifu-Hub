@@ -13,19 +13,26 @@ wait(0.1)
 HMR.CFrame = CFrame.new(3219, 338, 1943)
 end)
 Tab1:Toggle("Auto Bag", function(e)
-getgenv().Bag = e 
-    wait()
-if getgenv().Bag and getgenv().Bags == 1 then
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Items.Gloves.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(distance > -90 or 90), 0, 0) + Vector3.new(0, -3, 0)
-    wait(0.5)
-    fireclickdetector(game.workspace.Items.Gloves.ClickDetector)
-    wait(0.5)
-    
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3219, 338, 1943) * CFrame.Angles(math.rad -90, 0, 0) + Vector3.new(0, -6, 0)
-    
+getgenv().Bag = e
+getgenv().Bags = 1
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+
+while Bag do
+    if Bag and Bags == 1 then
+        LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4669, -25, 1995) * CFrame.new(0, -3, 0) * CFrame.Angles(math.rad(90), 0, 0) 
+        fireclickdetector(workspace.Items.Gloves.ClickDetector)
+        LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4620, -20, 1934) * CFrame.new(0, -6, 0) * CFrame.Angles(math.rad(-90), 0, 0)
+        wait()
+        LP.Backpack.Gloves.Parent = LP.Character
+repeat
+            local vu  = game:GetService("VirtualUser")
+            vu:Button1Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+            wait(1)
+            vu:Button1Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+until LocalPlayer.Backpack:FindFirstChild(Gloves) == nil and LocalPlayer.Character:FindFirstChild(Gloves) == nil
+    end
 end
 end
-end)
-local EZ = Tab1:Button("Destroy", function()
-    cum:Destroy()
+end
 end)
