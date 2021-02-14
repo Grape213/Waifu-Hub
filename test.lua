@@ -16,7 +16,7 @@ Tab1:Toggle("Auto Bag", function(e)
 getgenv().Bag = e
 getgenv().Bags = 1
 
-local LocalPlayer = game:GetService("Players").LocalPlayer
+local LP = game:GetService("Players").LocalPlayer
 
 while Bag do
     if Bag and Bags == 1 then
