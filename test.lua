@@ -1,3 +1,4 @@
+  
 getgenv().Tatakai = true
 
 
@@ -16,14 +17,33 @@ if game.PlaceId == 5201039691 and Tatakai == true then
     Tab1:Toggle("Auto Train", function(cum)
         getgenv().Train = cum
         while Train do
-            if Train and TrainType == Rope then
+            wait()
+            if Train and TrainType == Rope then 
+                if LP.Character:FindFirstChild("Jumping Rope") == nil and LP.Backpack:FindFirstChild("Jumping Rope") then
+                    wait()
+                    local Tween = game:GetService("TweenService")
+                    local Info1 = TweenInfo.new(
+                        2,
+                        Enum.EasingStyle.Sine,
+                        Enum.EasingDirection.Out,
+                        0,
+                        false
+                    )
+                    local RopeBuy ={
+                    CFrame = CFrame.new("4669.16699, -25.5181561, 1991.78711")
+                    }
+                    local BuyRope = Tween:Create(HMR, Info1, RopeBuy)
+                    
+                    wait(1)
+                    BuyRope:Play()
+                end
+                wait()
+                fireclickdetector(game:GetSarvice("Workspace").Items["Jumping Rope"].ClickDetector)
             end
+    
             end
             end)    
-    Tab1:Dropdown("Select Train Type", {"Rope","Push Ups","Pull Ups","Option 4","Option 5"}, function(e)
+    Tab1:Dropdown("Select Train Type", {"Rope","PushUps","PullUps","Option 4","Option 5"}, function(e)
         TrainType = e
     end)
-    Tab1:Slider("Tween speed", 100, 300, 100, function(t)
-        getgenv().TweenSpeed = t 
-        end)
     end
